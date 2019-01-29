@@ -24641,7 +24641,7 @@ function (_React$Component) {
 
 var _default = HelloMessage;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"src/components/Toggle.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"src/components/Timer.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24650,6 +24650,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
+
+var _Toggle = _interopRequireDefault(require("./Toggle"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24671,40 +24673,127 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
+var Timer =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Timer, _React$Component);
+
+  function Timer(props) {
+    var _this;
+
+    _classCallCheck(this, Timer);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Timer).call(this, props));
+    _this.state = {
+      time: 100,
+      isToggleOn: true
+    };
+    _this.handleToggleClick = _this.handleToggleClick.bind(_assertThisInitialized(_assertThisInitialized(_this))); // this.startTimer = this.startTimer.bind(this)
+    // this.stopTimer = this.stopTimer.bind(this)
+    // this.resetTimer = this.resetTimer.bind(this)
+
+    return _this;
+  }
+
+  _createClass(Timer, [{
+    key: "handleToggleClick",
+    value: function handleToggleClick() {
+      var _this2 = this;
+
+      //handleClick() {
+      this.setState(function (state) {
+        return {
+          isToggleOn: !state.isToggleOn
+        };
+      }); //si isToggleOn est vrai, c'est à dire sur start, on commence d'interval, on ajoute au temps
+      //indiqué +1 toutes les secondes
+
+      if (this.state.isToggleOn === true) {
+        this.timer = setInterval(function () {
+          return _this2.setState({
+            time: _this2.state.time - 1
+          });
+        }, 1000);
+        console.log("start");
+      } // si isToggleOn est faux, quand on appuie sur stop, on arrête l'inteval en cours et on revien
+      // à l'état d'origine
+      else {
+          clearInterval(this.timer);
+          this.setState({
+            time: 100
+          });
+          console.log("reset");
+        } //}
+
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("div", null, _react.default.createElement("h3", null, "timer: ", this.state.time), _react.default.createElement(_Toggle.default, {
+        onClick: this.handleToggleClick,
+        isToggleOn: this.state.isToggleOn
+      }), _react.default.createElement("button", {
+        onClick: this.resetTimer
+      }, "reset"));
+    }
+  }]);
+
+  return Timer;
+}(_react.default.Component);
+
+var _default = Timer;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./Toggle":"src/components/Toggle.js"}],"src/components/Toggle.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _Timer = _interopRequireDefault(require("./Timer"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 var Toggle =
 /*#__PURE__*/
 function (_React$Component) {
   _inherits(Toggle, _React$Component);
 
   function Toggle(props) {
-    var _this;
-
     _classCallCheck(this, Toggle);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Toggle).call(this, props));
-    _this.state = {
-      isToggleOn: true
-    }; // Doesn't work without that...
-
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(Toggle).call(this, props)); // this.state = { isToggleOn: true };
+    // Doesn't work without that...
+    // this.props.handleToggleClick = this.props.handleToggleClick.bind(this);
   }
 
   _createClass(Toggle, [{
-    key: "handleClick",
-    value: function handleClick() {
-      this.setState(function (state) {
-        return {
-          isToggleOn: !state.isToggleOn
-        };
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement("button", {
-        onClick: this.handleClick
-      }, this.state.isToggleOn ? 'START' : 'STOP');
+      return _react.default.createElement("div", null, _react.default.createElement("button", {
+        onClick: this.props.onClick
+      }, this.props.isToggleOn ? 'START' : 'STOP'));
     }
   }]);
 
@@ -24713,7 +24802,7 @@ function (_React$Component) {
 
 var _default = Toggle;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"src/components/Increment.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Timer":"src/components/Timer.js"}],"src/components/Increment.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24876,6 +24965,8 @@ var _Increment = _interopRequireDefault(require("./components/Increment"));
 
 var _Decrement = _interopRequireDefault(require("./components/Decrement"));
 
+var _Timer = _interopRequireDefault(require("./components/Timer"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //Importer ici tous les composants qui seront créés; ce sont des fichiers .js
@@ -24890,8 +24981,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // ReactDOM.render (<Increment />,
 //     document.getElementById ('app')
 // );
-_reactDom.default.render(_react.default.createElement(_Decrement.default, null), document.getElementById('app'));
-},{"./scss/app.css":"src/scss/app.css","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header":"src/components/Header.js","./components/HelloMessage":"src/components/HelloMessage.js","./components/Toggle":"src/components/Toggle.js","./components/Increment":"src/components/Increment.js","./components/Decrement":"src/components/Decrement.js"}],"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+// ReactDOM.render (<Decrement />,
+//     document.getElementById ('app')
+// );
+_reactDom.default.render(_react.default.createElement(_Timer.default, null), document.getElementById('app'));
+},{"./scss/app.css":"src/scss/app.css","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header":"src/components/Header.js","./components/HelloMessage":"src/components/HelloMessage.js","./components/Toggle":"src/components/Toggle.js","./components/Increment":"src/components/Increment.js","./components/Decrement":"src/components/Decrement.js","./components/Timer":"src/components/Timer.js"}],"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -24918,7 +25012,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41541" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38579" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

@@ -6,7 +6,9 @@ import Header from './components/Header';
 import HelloMessage from './components/HelloMessage';
 import Toggle from './components/Toggle';
 import Increment from './components/Increment';
-import Decrement from './components/Decrement'
+import Decrement from './components/Decrement';
+import Timer from './components/Timer'
+
 
 
 // ReactDOM.render (<Header />, 
@@ -24,6 +26,13 @@ import Decrement from './components/Decrement'
 //     document.getElementById ('app')
 // );
 
-ReactDOM.render (<Decrement />,
+// ReactDOM.render (<Decrement />,
+//     document.getElementById ('app')
+// );
+
+ReactDOM.render (<Timer />,
     document.getElementById ('app')
-);
+    );
+
+
+
