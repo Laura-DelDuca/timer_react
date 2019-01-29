@@ -15,24 +15,13 @@ import Timer from './components/Timer'
 //     document.getElementById ('app')
 // );
 
-// ReactDOM.render (<Toggle />,
-//     document.getElementById ('app')  
-// );
 
 // let App = document.getElementById("app");
 // ReactDOM.render(<HelloMessage name="Yomi" />, App);
 
-// ReactDOM.render (<Increment />,
-//     document.getElementById ('app')
-// );
-
-// ReactDOM.render (<Decrement />,
-//     document.getElementById ('app')
-// );
-
 ReactDOM.render (<Timer />,
     document.getElementById ('app')
-    );
+);
 
 
 

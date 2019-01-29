@@ -2,27 +2,20 @@ import React from "react";
 
 class Increment extends React.Component {
     constructor(props) {
-      super(props);
+      super(props)
       this.state = {time : 0};
-  
-      // Doesn't work without that...
-      this.Increment = this.Increment.bind(this);
-    }
-  
-    Increment() {
-      this.setState(state => ({
-        time: state.time +1
-      }));
     }
   
     render() {
       return (
-        <button onClick={this.Increment}>
-          {this.state.time}
-        </button>
+        <div>
+          <button onClick={this.props.onClick}>
+            + 1
+          </button>
+        </div>
       );
+      console.log(this.state.time);
     }
   }
   
-
 export default Increment;

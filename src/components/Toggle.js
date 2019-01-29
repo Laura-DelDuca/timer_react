@@ -1,5 +1,4 @@
 import React from "react";
-import Timer from "./Timer";
 
 class Toggle extends React.Component {
   constructor(props) {
@@ -13,9 +12,10 @@ class Toggle extends React.Component {
   render() {
     return (
       <div>
-      {/* <Timer count={this.state.isToggleOn} /> */}
+      {/* va chercher la propriété onClick dans Timer */}
       <button onClick={this.props.onClick}>
-        {this.props.isToggleOn ? 'START' : 'STOP'}
+      {/* Timer va chercher le status de Toggle: on a les deux possibiluté ici, au clic, on passe de l'une à l'autre. */}
+        {this.props.isToggleOn ? 'START' : 'RESET'}
       </button>
       </div>
     );

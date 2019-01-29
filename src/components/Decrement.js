@@ -2,27 +2,20 @@ import React from "react";
 
 class Decrement extends React.Component {
     constructor(props) {
-      super(props);
-      this.state = {time : 100};
-  
-      // Doesn't work without that...
-      this.Decrement = this.Decrement.bind(this);
+      super(props)
+      this.state = {time : 0};
     }
-  
-    Decrement() {
-      this.setState(state => ({
-        time: state.time -1
-      }));
-    }
-  
+
     render() {
       return (
-        <button onClick={this.Decrement}>
-          {this.state.time}
-        </button>
+        <div>
+          <button onClick={this.props.onClick}>
+            - 1
+          </button>
+        </div>
       );
+      console.log(this.state.time);
     }
   }
   
-
 export default Decrement;

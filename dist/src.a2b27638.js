@@ -24576,11 +24576,7 @@ var Header = function Header() {
   }, _react.default.createElement("a", {
     className: "navbar-item",
     href: "/"
-  }, _react.default.createElement("img", {
-    width: "120",
-    src: "",
-    alt: ""
-  }), _react.default.createElement("p", null, "I'm the fucking navbar")))));
+  }, _react.default.createElement("p", null, "It's time to (re)act !")))));
 };
 
 var _default = Header; // Exporter tous les composants .js qui composent l'application; ils vont vers index.js
@@ -24641,7 +24637,7 @@ function (_React$Component) {
 
 var _default = HelloMessage;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"src/components/Timer.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"src/components/Toggle.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24650,110 +24646,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
-
-var _Toggle = _interopRequireDefault(require("./Toggle"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-var Timer =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Timer, _React$Component);
-
-  function Timer(props) {
-    var _this;
-
-    _classCallCheck(this, Timer);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Timer).call(this, props));
-    _this.state = {
-      time: 100,
-      isToggleOn: true
-    };
-    _this.handleToggleClick = _this.handleToggleClick.bind(_assertThisInitialized(_assertThisInitialized(_this))); // this.startTimer = this.startTimer.bind(this)
-    // this.stopTimer = this.stopTimer.bind(this)
-    // this.resetTimer = this.resetTimer.bind(this)
-
-    return _this;
-  }
-
-  _createClass(Timer, [{
-    key: "handleToggleClick",
-    value: function handleToggleClick() {
-      var _this2 = this;
-
-      //handleClick() {
-      this.setState(function (state) {
-        return {
-          isToggleOn: !state.isToggleOn
-        };
-      }); //si isToggleOn est vrai, c'est à dire sur start, on commence d'interval, on ajoute au temps
-      //indiqué +1 toutes les secondes
-
-      if (this.state.isToggleOn === true) {
-        this.timer = setInterval(function () {
-          return _this2.setState({
-            time: _this2.state.time - 1
-          });
-        }, 1000);
-        console.log("start");
-      } // si isToggleOn est faux, quand on appuie sur stop, on arrête l'inteval en cours et on revien
-      // à l'état d'origine
-      else {
-          clearInterval(this.timer);
-          this.setState({
-            time: 100
-          });
-          console.log("reset");
-        } //}
-
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement("h3", null, "timer: ", this.state.time), _react.default.createElement(_Toggle.default, {
-        onClick: this.handleToggleClick,
-        isToggleOn: this.state.isToggleOn
-      }), _react.default.createElement("button", {
-        onClick: this.resetTimer
-      }, "reset"));
-    }
-  }]);
-
-  return Timer;
-}(_react.default.Component);
-
-var _default = Timer;
-exports.default = _default;
-},{"react":"node_modules/react/index.js","./Toggle":"src/components/Toggle.js"}],"src/components/Toggle.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _Timer = _interopRequireDefault(require("./Timer"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24793,7 +24685,7 @@ function (_React$Component) {
     value: function render() {
       return _react.default.createElement("div", null, _react.default.createElement("button", {
         onClick: this.props.onClick
-      }, this.props.isToggleOn ? 'START' : 'STOP'));
+      }, this.props.isToggleOn ? 'START' : 'RESET'));
     }
   }]);
 
@@ -24802,7 +24694,7 @@ function (_React$Component) {
 
 var _default = Toggle;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Timer":"src/components/Timer.js"}],"src/components/Increment.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"src/components/Increment.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24824,13 +24716,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 var Increment =
 /*#__PURE__*/
@@ -24845,27 +24737,17 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Increment).call(this, props));
     _this.state = {
       time: 0
-    }; // Doesn't work without that...
-
-    _this.Increment = _this.Increment.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    };
     return _this;
   }
 
   _createClass(Increment, [{
-    key: "Increment",
-    value: function Increment() {
-      this.setState(function (state) {
-        return {
-          time: state.time + 1
-        };
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement("button", {
-        onClick: this.Increment
-      }, this.state.time);
+      return _react.default.createElement("div", null, _react.default.createElement("button", {
+        onClick: this.props.onClick
+      }, "+ 1"));
+      console.log(this.state.time);
     }
   }]);
 
@@ -24896,13 +24778,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 var Decrement =
 /*#__PURE__*/
@@ -24916,28 +24798,18 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Decrement).call(this, props));
     _this.state = {
-      time: 100
-    }; // Doesn't work without that...
-
-    _this.Decrement = _this.Decrement.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+      time: 0
+    };
     return _this;
   }
 
   _createClass(Decrement, [{
-    key: "Decrement",
-    value: function Decrement() {
-      this.setState(function (state) {
-        return {
-          time: state.time - 1
-        };
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement("button", {
-        onClick: this.Decrement
-      }, this.state.time);
+      return _react.default.createElement("div", null, _react.default.createElement("button", {
+        onClick: this.props.onClick
+      }, "- 1"));
+      console.log(this.state.time);
     }
   }]);
 
@@ -24946,7 +24818,213 @@ function (_React$Component) {
 
 var _default = Decrement;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"src/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"public/img/image.png":[function(require,module,exports) {
+module.exports = "/image.80bdf659.png";
+},{}],"src/components/Logo.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _image = _interopRequireDefault(require("/public/img/image.png"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var ReactLogo =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(ReactLogo, _React$Component);
+
+  function ReactLogo() {
+    _classCallCheck(this, ReactLogo);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(ReactLogo).apply(this, arguments));
+  }
+
+  _createClass(ReactLogo, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("div", null, _react.default.createElement("img", {
+        width: "120",
+        src: _image.default,
+        alt: "Logo"
+      }));
+    }
+  }]);
+
+  return ReactLogo;
+}(_react.default.Component);
+
+var _default = ReactLogo;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","/public/img/image.png":"public/img/image.png"}],"src/components/Timer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _Toggle = _interopRequireDefault(require("./Toggle"));
+
+var _Increment = _interopRequireDefault(require("./Increment"));
+
+var _Decrement = _interopRequireDefault(require("./Decrement"));
+
+var _Header = _interopRequireDefault(require("./Header"));
+
+var _Logo = _interopRequireDefault(require("./Logo"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+var Timer =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Timer, _React$Component);
+
+  function Timer(props) {
+    var _this;
+
+    _classCallCheck(this, Timer);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Timer).call(this, props));
+    _this.state = {
+      time: 100,
+      isToggleOn: true
+    };
+    _this.handleToggleClick = _this.handleToggleClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleIncrementClick = _this.handleIncrementClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleDecrementClick = _this.handleDecrementClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    return _this;
+  }
+
+  _createClass(Timer, [{
+    key: "handleToggleClick",
+    value: function handleToggleClick() {
+      var _this2 = this;
+
+      this.setState(function (state) {
+        return {
+          isToggleOn: !state.isToggleOn
+        };
+      }); //si isToggleOn est vrai, c'est à dire sur start, on commence d'interval, on ajoute au temps
+      //indiqué +1 toutes les secondes, la fonction se déclanche au clic dans Toggle component
+
+      if (this.state.isToggleOn === true) {
+        this.timer = setInterval(function () {
+          return _this2.setState({
+            time: _this2.state.time - 1
+          });
+        }, 1000);
+        console.log("start");
+      } // si isToggleOn est faux, quand on appuie sur stop, on arrête l'inteval en cours et on revien
+      // à l'état d'origine, ça se passe au clic dans le composant Toggle
+      else {
+          clearInterval(this.timer);
+          this.setState({
+            time: 100
+          });
+          console.log("reset");
+        }
+    }
+  }, {
+    key: "handleIncrementClick",
+    value: function handleIncrementClick() {
+      this.setState({
+        time: this.state.time + 1
+      });
+    }
+  }, {
+    key: "handleDecrementClick",
+    value: function handleDecrementClick() {
+      this.setState({
+        time: this.state.time - 1
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("div", {
+        id: "main"
+      }, _react.default.createElement("div", {
+        id: "header"
+      }, _react.default.createElement(_Header.default, null)), _react.default.createElement("div", {
+        id: "container_all"
+      }, _react.default.createElement("div", {
+        id: "ReactLogo"
+      }, _react.default.createElement(_Logo.default, null)), _react.default.createElement("div", {
+        id: "timer"
+      }, _react.default.createElement("div", {
+        id: "clock"
+      }, _react.default.createElement("h3", {
+        id: "numbers"
+      }, this.state.time)), _react.default.createElement("div", {
+        id: "buttons"
+      }, _react.default.createElement("div", {
+        id: "toggle"
+      }, _react.default.createElement(_Toggle.default, {
+        onClick: this.handleToggleClick,
+        isToggleOn: this.state.isToggleOn
+      })), _react.default.createElement("div", {
+        id: "increment"
+      }, _react.default.createElement(_Increment.default, {
+        onClick: this.handleIncrementClick
+      })), _react.default.createElement("div", {
+        id: "decrement"
+      }, _react.default.createElement(_Decrement.default, {
+        onClick: this.handleDecrementClick
+      }))))));
+    }
+  }]);
+
+  return Timer;
+}(_react.default.Component);
+
+var _default = Timer;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./Toggle":"src/components/Toggle.js","./Increment":"src/components/Increment.js","./Decrement":"src/components/Decrement.js","./Header":"src/components/Header.js","./Logo":"src/components/Logo.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 require("./scss/app.css");
@@ -24973,17 +25051,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // ReactDOM.render (<Header />, 
 //     document.getElementById ('app')
 // );
-// ReactDOM.render (<Toggle />,
-//     document.getElementById ('app')  
-// );
 // let App = document.getElementById("app");
 // ReactDOM.render(<HelloMessage name="Yomi" />, App);
-// ReactDOM.render (<Increment />,
-//     document.getElementById ('app')
-// );
-// ReactDOM.render (<Decrement />,
-//     document.getElementById ('app')
-// );
 _reactDom.default.render(_react.default.createElement(_Timer.default, null), document.getElementById('app'));
 },{"./scss/app.css":"src/scss/app.css","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header":"src/components/Header.js","./components/HelloMessage":"src/components/HelloMessage.js","./components/Toggle":"src/components/Toggle.js","./components/Increment":"src/components/Increment.js","./components/Decrement":"src/components/Decrement.js","./components/Timer":"src/components/Timer.js"}],"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -25012,7 +25081,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38579" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43931" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
