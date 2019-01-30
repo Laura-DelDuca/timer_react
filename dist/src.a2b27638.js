@@ -24554,90 +24554,7 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"src/components/Header.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Header = function Header() {
-  return _react.default.createElement("header", null, _react.default.createElement("nav", {
-    className: "navbar",
-    role: "navigation",
-    "aria-label": "main navigation"
-  }, _react.default.createElement("div", {
-    className: "navbar-brand"
-  }, _react.default.createElement("a", {
-    className: "navbar-item",
-    href: "/"
-  }, _react.default.createElement("p", null, "It's time to (re)act !")))));
-};
-
-var _default = Header; // Exporter tous les composants .js qui composent l'application; ils vont vers index.js
-
-exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"src/components/HelloMessage.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var HelloMessage =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(HelloMessage, _React$Component);
-
-  function HelloMessage() {
-    _classCallCheck(this, HelloMessage);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(HelloMessage).apply(this, arguments));
-  }
-
-  _createClass(HelloMessage, [{
-    key: "render",
-    value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement("div", {
-        className: "container"
-      }, _react.default.createElement("h1", null, "Hello ", this.props.name)));
-    }
-  }]);
-
-  return HelloMessage;
-}(_react.default.Component);
-
-var _default = HelloMessage;
-exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"src/components/Toggle.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"src/components/Toggle.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24808,8 +24725,7 @@ function (_React$Component) {
     value: function render() {
       return _react.default.createElement("div", null, _react.default.createElement("button", {
         onClick: this.props.onClick
-      }, "- 1"));
-      console.log(this.state.time);
+      }, "- 1")); // console.log(this.state.time);
     }
   }]);
 
@@ -24817,6 +24733,34 @@ function (_React$Component) {
 }(_react.default.Component);
 
 var _default = Decrement;
+exports.default = _default;
+},{"react":"node_modules/react/index.js"}],"src/components/Header.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Header = function Header() {
+  return _react.default.createElement("header", null, _react.default.createElement("nav", {
+    className: "navbar",
+    role: "navigation",
+    "aria-label": "main navigation"
+  }, _react.default.createElement("div", {
+    className: "navbar-brand"
+  }, _react.default.createElement("a", {
+    className: "navbar-item",
+    href: "/"
+  }, _react.default.createElement("p", null, "It's time to (re)act !")))));
+};
+
+var _default = Header; // Exporter tous les composants .js qui composent l'application; ils vont vers index.js
+
 exports.default = _default;
 },{"react":"node_modules/react/index.js"}],"public/img/image.png":[function(require,module,exports) {
 module.exports = "/image.80bdf659.png";
@@ -24931,16 +24875,27 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Timer).call(this, props));
     _this.state = {
-      time: 100,
-      isToggleOn: true
+      time: 1200,
+      isToggleOn: true //il faut binder chaque fonction quand on a un constructor,  va savoir pourquoi...
+
     };
     _this.handleToggleClick = _this.handleToggleClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.handleIncrementClick = _this.handleIncrementClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.handleDecrementClick = _this.handleDecrementClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.timerParser = _this.timerParser.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
   _createClass(Timer, [{
+    key: "timerParser",
+    value: function timerParser() {
+      var min = Math.floor(this.state.time / 60);
+      var sec = this.state.time % 60; //mettre un zéro devant le chiffre des secondes quand il est inférieur à 10:
+
+      if (sec < 10) return "".concat(min, ":0").concat(sec);
+      return "".concat(min, " : ").concat(sec);
+    }
+  }, {
     key: "handleToggleClick",
     value: function handleToggleClick() {
       var _this2 = this;
@@ -25000,7 +24955,7 @@ function (_React$Component) {
         id: "clock"
       }, _react.default.createElement("h3", {
         id: "numbers"
-      }, this.state.time)), _react.default.createElement("div", {
+      }, this.timerParser())), _react.default.createElement("div", {
         id: "buttons"
       }, _react.default.createElement("div", {
         id: "toggle"
@@ -25033,28 +24988,20 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
-var _Header = _interopRequireDefault(require("./components/Header"));
-
-var _HelloMessage = _interopRequireDefault(require("./components/HelloMessage"));
-
-var _Toggle = _interopRequireDefault(require("./components/Toggle"));
-
-var _Increment = _interopRequireDefault(require("./components/Increment"));
-
-var _Decrement = _interopRequireDefault(require("./components/Decrement"));
-
 var _Timer = _interopRequireDefault(require("./components/Timer"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //Importer ici tous les composants qui seront créés; ce sont des fichiers .js
-// ReactDOM.render (<Header />, 
-//     document.getElementById ('app')
-// );
-// let App = document.getElementById("app");
-// ReactDOM.render(<HelloMessage name="Yomi" />, App);
-_reactDom.default.render(_react.default.createElement(_Timer.default, null), document.getElementById('app'));
-},{"./scss/app.css":"src/scss/app.css","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header":"src/components/Header.js","./components/HelloMessage":"src/components/HelloMessage.js","./components/Toggle":"src/components/Toggle.js","./components/Increment":"src/components/Increment.js","./components/Decrement":"src/components/Decrement.js","./components/Timer":"src/components/Timer.js"}],"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+// import Header from './components/Header';
+// import HelloMessage from './components/HelloMessage';
+// import Toggle from './components/Toggle';
+// import Increment from './components/Increment';
+// import Decrement from './components/Decrement';
+var App = document.getElementById("app");
+
+_reactDom.default.render(_react.default.createElement(_Timer.default, null), App);
+},{"./scss/app.css":"src/scss/app.css","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Timer":"src/components/Timer.js"}],"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -25081,7 +25028,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43931" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39213" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

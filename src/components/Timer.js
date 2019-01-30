@@ -3,19 +3,30 @@ import Toggle from "./Toggle";
 import Increment from "./Increment";
 import Decrement from "./Decrement";
 import Header from "./Header";
-import ReactLogo from "./Logo"
+import ReactLogo from "./Logo";
 
 
 class Timer extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            time: 100,
+            time: 1200,
             isToggleOn: true
         }
+
+        //il faut binder chaque fonction quand on a un constructor,  va savoir pourquoi...
         this.handleToggleClick = this.handleToggleClick.bind(this);
         this.handleIncrementClick = this.handleIncrementClick.bind(this);
         this.handleDecrementClick = this.handleDecrementClick.bind(this);
+        this.timerParser = this.timerParser.bind(this);
+    }
+
+    timerParser() {
+        let min = Math.floor(this.state.time / 60);
+        let sec = this.state.time % 60;
+        //mettre un zéro devant le chiffre des secondes quand il est inférieur à 10:
+        if (sec < 10) return `${min}:0${sec}`;
+        return `${min} : ${sec}`;
     }
 
     handleToggleClick() {
@@ -65,7 +76,10 @@ class Timer extends React.Component {
 
                     <div id="timer">
                         <div id="clock">
-                            <h3 id="numbers">{this.state.time}</h3>
+                        {/* il faut mettre des () car ici, on appalle la focntion, dans les cas en dessous, 
+                        on l'envoie juste au composant mais elle ne s'éxecuter mais à ce moemnt là, 
+                        pour le time parser, elle s'exécute ici */}
+                            <h3 id="numbers">{this.timerParser()}</h3>
                             {/* on importe toggle= start ou reset et son fonctionnenemtn est juste au dessus, ici */}
                             {/* on lui dit la méthode qu'il doit aller chercher au clic : handleToggleClick et on lui demande d'afficher son status start ou reset */}
                         </div>

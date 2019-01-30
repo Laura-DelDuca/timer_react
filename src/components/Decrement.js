@@ -14,7 +14,7 @@ class Decrement extends React.Component {
           </button>
         </div>
       );
-      console.log(this.state.time);
+      // console.log(this.state.time);
     }
   }
   
