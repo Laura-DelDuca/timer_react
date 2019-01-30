@@ -80,8 +80,13 @@ body {
   font-weight: thin
 }
 
-#test {
-  background-color: black
+.Modal {
+  background-color: black; 
+  width: 350px;
+  height: 200px
 }
 
+#textModal {
+  color: white;
+}
 

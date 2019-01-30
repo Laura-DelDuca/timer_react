@@ -26915,13 +26915,20 @@ function (_React$Component) {
   _createClass(Modal, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement(_reactModal.default //isOpen : pas à définir; existe telle qyelle
+      return _react.default.createElement("div", {
+        id: "test"
+      }, _react.default.createElement(_reactModal.default //isOpen : pas à définir; existe telle qyelle, vérifié s'il doit faire quelque chose ou pas
       , {
         isOpen: this.props.displayed,
-        contentLabel: "Minimal Modal Example"
-      }, _react.default.createElement("button", {
+        contentLabel: "Minimal Modal Example",
+        className: "Modal"
+      }, _react.default.createElement("p", {
+        id: "textModal"
+      }, "Time's over mate... C'mon, have a break !"), _react.default.createElement("button", {
         onClick: this.props.onClick
-      }, "Close")));
+      }, "Close"), _react.default.createElement("button", {
+        onClick: this.props.onClick2
+      }, "Restart")));
     }
   }]);
 
@@ -26993,6 +27000,7 @@ function (_React$Component) {
     _this.timeParser = _this.timeParser.bind(_assertThisInitialized(_assertThisInitialized(_this))); // this.isHidden = this.isHidden.bind(this);
 
     _this.handleCloseModal = _this.handleCloseModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleRestart = _this.handleRestart.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -27012,7 +27020,7 @@ function (_React$Component) {
 
       this.setState(function (state) {
         return {
-          isToggleOn: !state.isToggleOn
+          isToggleOn: !_this2.state.isToggleOn
         };
       }); //si isToggleOn est vrai, c'est à dire sur start, on commence d'interval, on ajoute au temps
       //indiqué +1 toutes les secondes, la fonction se déclanche au clic dans Toggle component
@@ -27025,7 +27033,8 @@ function (_React$Component) {
 
             _this2.setState({
               //inverse la valuer de showmodal
-              showModal: !_this2.state.showModal
+              showModal: !_this2.state.showModal // isToggleOn: !this.state.isToggleOn
+
             });
 
             return;
@@ -27077,13 +27086,23 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "handleRestart",
+    value: function handleRestart() {
+      this.setState({
+        time: 1200,
+        isToggleOn: !this.state.isToggleOn
+      });
+      this.handleToggleClick();
+    }
+  }, {
     key: "render",
     value: function render() {
       return _react.default.createElement("div", {
         id: "container_all"
       }, _react.default.createElement(_Logo.default, null), !this.state.time && _react.default.createElement(_Modal.default, {
         displayed: this.state.showModal,
-        onClick: this.handleCloseModal
+        onClick: this.handleCloseModal,
+        onClick2: this.handleRestart
       }), _react.default.createElement(_Increment.default, {
         onClick: this.handleIncrementClick
       }), _react.default.createElement("h3", {

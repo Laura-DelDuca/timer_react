@@ -23,6 +23,7 @@ class Timer extends React.Component {
         this.timeParser = this.timeParser.bind(this);
         // this.isHidden = this.isHidden.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
+        this.handleRestart = this.handleRestart.bind(this);
     }
 
     timeParser() {
@@ -35,7 +36,7 @@ class Timer extends React.Component {
 
     handleToggleClick() {
         this.setState(state => ({
-            isToggleOn: !state.isToggleOn
+            isToggleOn: !this.state.isToggleOn
         }));
         //si isToggleOn est vrai, c'est à dire sur start, on commence d'interval, on ajoute au temps
         //indiqué +1 toutes les secondes, la fonction se déclanche au clic dans Toggle component
@@ -46,7 +47,8 @@ class Timer extends React.Component {
                     clearInterval (this.timer)
                     this.setState({
                         //inverse la valuer de showmodal
-                        showModal: !this.state.showModal
+                        showModal: !this.state.showModal,
+                        // isToggleOn: !this.state.isToggleOn
                     });
                     return;
                 }
@@ -91,11 +93,19 @@ class Timer extends React.Component {
       this.setState({ showModal: false });
     }
 
+    handleRestart () {
+        this.setState({ 
+            time: 1200,
+            isToggleOn: !this.state.isToggleOn 
+        })
+        this.handleToggleClick() 
+    }
+
     render() {
         return (
             <div id="container_all">
                 <ReactLogo />
-                {!this.state.time && (<Modal  displayed={this.state.showModal} onClick={this.handleCloseModal}/>)}
+                {!this.state.time && (<Modal  displayed={this.state.showModal} onClick={this.handleCloseModal} onClick2={this.handleRestart}/>)}
                 <Increment onClick={this.handleIncrementClick} />
                             {/* il faut mettre des () car ici, on appalle la focntion, dans les cas en dessous, 
                         on l'envoie juste au composant mais elle ne s'éxecuter mais à ce moemnt là, 
