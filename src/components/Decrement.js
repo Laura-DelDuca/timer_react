@@ -3,18 +3,19 @@ import React from "react";
 class Decrement extends React.Component {
     constructor(props) {
       super(props)
-      this.state = {time : 0};
+      this.state = {
+        time : 0,
+        isHidden: false
+      };
     }
 
     render() {
       return (
-        <div>
-          <button onClick={this.props.onClick}>
+          <button id="decrement" className="buttons" onClick={this.props.onClick}>
             - 1
           </button>
-        </div>
       );
-      // console.log(this.state.time);
+      console.log(this.state.time);
     }
   }
   

@@ -5,8 +5,8 @@ class ReactLogo extends React.Component {
 
     render() {
         return (
-            <div>
-                <img width="120" src={Image} alt="Logo" />
+            <div id="logo" >
+                <img id="reactLogo" width="120" src={Image} alt="Logo" />
             </div>
         );
     }

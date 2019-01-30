@@ -3,16 +3,17 @@ import React from "react";
 class Increment extends React.Component {
     constructor(props) {
       super(props)
-      this.state = {time : 0};
+      this.state = {
+        time : 0,
+        isHidden: false
+      };
     }
   
     render() {
       return (
-        <div>
-          <button onClick={this.props.onClick}>
+          <button id="increment" className="buttons" onClick={this.props.onClick}>
             + 1
           </button>
-        </div>
       );
       console.log(this.state.time);
     }

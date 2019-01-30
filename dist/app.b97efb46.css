@@ -1,29 +1,87 @@
 body {
   background-color: #000010;
   text-align: center;
+  height: 100%
+}
+
+#container_all {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 20% 10% 40% 10% 20%;
+  grid-template-rows: 40% 20% 40%
 }
 
 #numbers {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  align-self: center;
   color: #00D1FE;
-  font-size: 80px;
+  font-size: 90px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-
-
-#container_all {
-  display:grid;
-  grid-template-columns: 50% 50%;
+.buttons {
+  width:60px;
+	height:60px;
+	background:#000010;
+	/* box-shadow:2px 2px 4px #aaa; */
+	border-radius:50%;
+  color: white;
+  font-size: 20px
 }
 
-#ReactLogo {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  background-color: yellow
+#increment {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  align-self: center
 }
 
-#timer {
+#decrement {
   grid-column-start: 2;
   grid-column-end: 3;
-  background-color: pink
+  grid-row-start: 2;
+  grid-row-end: 3;
+  justify-self: end;
+  align-self: center
 }
+
+#logo {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  align-self: end
+}
+
+#reactLogo {
+  width: 50px
+}
+
+#toggle {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4;
+} 
+
+#togglebtn {
+  width:60px;
+	height:60px;
+	background:#000010;
+  color: white;
+  font-size: 20px;
+  border: none;
+  outline:none;
+  font-weight: thin
+}
+
+#test {
+  background-color: black
+}
+
 

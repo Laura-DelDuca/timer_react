@@ -1,18 +1,18 @@
-import React from 'react';
+// import React from 'react';
 
 
-const Header = () => (
-    <header>
-        <nav className="navbar" role="navigation" aria-label="main navigation">
-            <div className="navbar-brand">
-                <a className="navbar-item" href="/">
-                    {/* <img width="120" src={Logo} alt=""/> */}
-                    <p>It's time to (re)act !</p>
-                </a>
-            </div>
-        </nav>
-    </header>
-)
+// const Header = () => (
+//     <header>
+//         <nav className="navbar" role="navigation" aria-label="main navigation">
+//             <div className="navbar-brand">
+//                 <a className="navbar-item" href="/">
+//                     {/* <img width="120" src={Logo} alt=""/> */}
+//                     <p>It's time to (re)act !</p>
+//                 </a>
+//             </div>
+//         </nav>
+//     </header>
+// )
 
-export default Header;
-// Exporter tous les composants .js qui composent l'application; ils vont vers index.js
+// export default Header;
+// // Exporter tous les composants .js qui composent l'application; ils vont vers index.js
