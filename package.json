@@ -7,7 +7,7 @@
     "start": "parcel index.html",
     "build": "parcel build index.html -d docs --public-url ./"
   },
-  "homepage": "https://Laura-DelDuca.github.io/timer_react",
+  "homepage": "https://laura-delduca.github.io/timer_react",
   "author": "",
   "license": "ISC",
   "dependencies": {
