@@ -11,7 +11,7 @@ class Increment extends React.Component {
   render() {
     return (
       <button id="increment" className="buttons" onClick={this.props.onClick}>
-        + 1
+        +
           </button>
     );
     console.log(this.state.time);

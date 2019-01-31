@@ -11,7 +11,7 @@ class Decrement extends React.Component {
   render() {
     return (
       <button id="decrement" className="buttons" onClick={this.props.onClick}>
-        - 1
+        -
           </button>
     );
     console.log(this.state.time);

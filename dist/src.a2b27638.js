@@ -176,7 +176,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/object-assign/index.js":[function(require,module,exports) {
+},{"./../../public/fonts/Jura-Light.ttf":[["Jura-Light.8df598a4.ttf","public/fonts/Jura-Light.ttf"],"public/fonts/Jura-Light.ttf"],"_css_loader":"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/object-assign/index.js":[function(require,module,exports) {
 /*
 object-assign
 (c) Sindre Sorhus
@@ -24666,7 +24666,7 @@ function (_React$Component) {
         id: "increment",
         className: "buttons",
         onClick: this.props.onClick
-      }, "+ 1");
+      }, "+");
       console.log(this.state.time);
     }
   }]);
@@ -24730,7 +24730,7 @@ function (_React$Component) {
         id: "decrement",
         className: "buttons",
         onClick: this.props.onClick
-      }, "- 1");
+      }, "-");
       console.log(this.state.time);
     }
   }]);
@@ -26923,7 +26923,7 @@ function (_React$Component) {
         overlayClassName: "overlay"
       }, _react.default.createElement("p", {
         id: "textModal"
-      }, "Time's over mate... C'mon, have a break !"), _react.default.createElement("button", {
+      }, "Time's up mate... C'mon, have a break !"), _react.default.createElement("button", {
         id: "closeModal",
         className: "buttonsModal",
         onClick: this.props.onClick
@@ -26992,7 +26992,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
     _this.state = {
-      time: 2,
+      time: 1200,
       isToggleOn: true,
       showModal: false //Il faut binder chaque fonction quand on a un constructor
 

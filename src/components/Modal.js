@@ -18,7 +18,7 @@ class Modal extends React.Component {
           //overlayClassName: utilisée pour mettre du css à l'apparition du Modal
           overlayClassName="overlay"
         >
-          <p id="textModal">Time's over mate... C'mon, have a break !</p>
+          <p id="textModal">Time's up mate... C'mon, have a break !</p>
           <button id="closeModal" className="buttonsModal" onClick={this.props.onClick}>Close</button>
           <button id="restartModal" className="buttonsModal" onClick={this.props.onClick2}>Restart</button>
         </ReactModal>

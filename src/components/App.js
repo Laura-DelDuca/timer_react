@@ -9,7 +9,7 @@ class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            time: 2,
+            time: 1200,
             isToggleOn: true,
             showModal: false,
         }
