@@ -48,6 +48,10 @@ body {
   align-self: center;
 }
 
+#increment:hover {
+  color: #00D1FE;
+}
+
 #decrement {
   grid-column-start: 2;
   grid-column-end: 3;
@@ -55,6 +59,10 @@ body {
   grid-row-end: 3;
   justify-self: end;
   align-self: center
+}
+
+#decrement:hover {
+  color: #00D1FE;
 }
 
 #logo {
@@ -66,7 +74,7 @@ body {
 }
 
 #reactLogo {
-  width: 50px
+  width: 50px;
 }
 
 #toggle {
@@ -86,6 +94,10 @@ body {
   outline:none;
   font-weight: thin;
   font-family: Jura, sans-serif;
+}
+
+#togglebtn:hover {
+  color: #00D1FE;
 }
 
 .Modal {

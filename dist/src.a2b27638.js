@@ -27015,6 +27015,7 @@ function (_React$Component) {
       var sec = this.state.time % 60; // If: sert à faire apparaître un 0 devant un chiffre des secondes il est inférieur à 10, c'est plus joli
 
       if (sec < 10) return "".concat(min, ":0").concat(sec);
+      if (min < 10) return "0".concat(min, ":").concat(sec);
       return "".concat(min, " : ").concat(sec);
     } //Définir le comportement du bouton Toggle
     //Quand on appuie sur start
