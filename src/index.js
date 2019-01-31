@@ -1,10 +1,11 @@
-//Importer ici tous les composants qui seront créés; ce sont des fichiers .js
+//Dans ce fichier, on importe le composant principal, App,
+//qui contient tous les autres composants; tous sont des fichiers .js
 import './scss/app.css';
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Timer from './components/Timer'
+import App from './components/App'
 
-const App = document.getElementById("app");
-
-ReactDOM.render(<Timer />, App);
+ReactDOM.render(<App />,
+    document.getElementById("app")
+);

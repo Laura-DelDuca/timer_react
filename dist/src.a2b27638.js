@@ -24592,7 +24592,7 @@ function (_React$Component) {
   function Toggle(props) {
     _classCallCheck(this, Toggle);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Toggle).call(this, props)); // this.state = { isToggleOn: true };
+    return _possibleConstructorReturn(this, _getPrototypeOf(Toggle).call(this, props));
   }
 
   _createClass(Toggle, [{
@@ -24654,8 +24654,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Increment).call(this, props));
     _this.state = {
-      time: 0,
-      isHidden: false
+      time: 0
     };
     return _this;
   }
@@ -24719,8 +24718,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Decrement).call(this, props));
     _this.state = {
-      time: 0,
-      isHidden: false
+      time: 0
     };
     return _this;
   }
@@ -26915,18 +26913,23 @@ function (_React$Component) {
   _createClass(Modal, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", {
-        id: "test"
-      }, _react.default.createElement(_reactModal.default //isOpen : pas à définir; existe telle qyelle, vérifié s'il doit faire quelque chose ou pas
+      return _react.default.createElement("div", null, _react.default.createElement(_reactModal.default //isOpen : elle est prédéfinie; vérifie ce qui doit être fait 
       , {
         isOpen: this.props.displayed,
-        contentLabel: "Minimal Modal Example",
-        className: "Modal"
+        contentLabel: "Minimal Modal Example" //Classname: utilisée pour mettre le CSS
+        ,
+        className: "Modal" //overlayClassName: utilisée pour mettre du css à l'apparition du Modal
+        ,
+        overlayClassName: "overlay"
       }, _react.default.createElement("p", {
         id: "textModal"
       }, "Time's over mate... C'mon, have a break !"), _react.default.createElement("button", {
+        id: "closeModal",
+        className: "buttonsModal",
         onClick: this.props.onClick
       }, "Close"), _react.default.createElement("button", {
+        id: "restartModal",
+        className: "buttonsModal",
         onClick: this.props.onClick2
       }, "Restart")));
     }
@@ -26937,7 +26940,7 @@ function (_React$Component) {
 
 var _default = Modal;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-modal":"node_modules/react-modal/lib/index.js"}],"src/components/Timer.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-modal":"node_modules/react-modal/lib/index.js"}],"src/components/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -26977,42 +26980,48 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-var Timer =
+var App =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(Timer, _React$Component);
+  _inherits(App, _React$Component);
 
-  function Timer(props) {
+  function App(props) {
     var _this;
 
-    _classCallCheck(this, Timer);
+    _classCallCheck(this, App);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Timer).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
     _this.state = {
       time: 2,
       isToggleOn: true,
-      showModal: false //il faut binder chaque fonction quand on a un constructor,  va savoir pourquoi...
+      showModal: false //Il faut binder chaque fonction quand on a un constructor
 
     };
     _this.handleToggleClick = _this.handleToggleClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.handleIncrementClick = _this.handleIncrementClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.handleDecrementClick = _this.handleDecrementClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.timeParser = _this.timeParser.bind(_assertThisInitialized(_assertThisInitialized(_this))); // this.isHidden = this.isHidden.bind(this);
-
+    _this.timeParser = _this.timeParser.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.handleCloseModal = _this.handleCloseModal.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.handleRestart = _this.handleRestart.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
-  }
+  } //Les fonctions: 
+  //Définir le temps initial du timer
 
-  _createClass(Timer, [{
+
+  _createClass(App, [{
     key: "timeParser",
     value: function timeParser() {
       var min = Math.floor(this.state.time / 60);
-      var sec = this.state.time % 60; //mettre un zéro devant le chiffre des secondes quand il est inférieur à 10:
+      var sec = this.state.time % 60; // If: sert à faire apparaître un 0 devant un chiffre des secondes il est inférieur à 10, c'est plus joli
 
       if (sec < 10) return "".concat(min, ":0").concat(sec);
       return "".concat(min, " : ").concat(sec);
-    }
+    } //Définir le comportement du bouton Toggle
+    //Quand on appuie sur start
+    //Quand il a fini le décompte
+    //Quand on appuie sur reset
+    //L'inversion Start-Reset se fait dans le composant lui-même
+
   }, {
     key: "handleToggleClick",
     value: function handleToggleClick() {
@@ -27022,19 +27031,20 @@ function (_React$Component) {
         return {
           isToggleOn: !_this2.state.isToggleOn
         };
-      }); //si isToggleOn est vrai, c'est à dire sur start, on commence d'interval, on ajoute au temps
-      //indiqué +1 toutes les secondes, la fonction se déclanche au clic dans Toggle component
+      }); //Si isToggleOn est vrai (start), on commence un interval, on décrément de 1 toutes les secondes
+      //La fonction se déclenche au clic sur le Toggle car la fonction est définie ici, 
+      //envoyée dans le render ci-dessous dans la balise du bon composant avec onClick et 
+      //récupérée dans le composant Toggle en indiquant props.onClick
 
       if (this.state.isToggleOn === true) {
         this.timer = setInterval(function () {
-          //stop l'interval quand on arrive à zéro, sinon ce con va dans les négatifs
+          //If: on stop l'interval quand on arrive à 0, sinon il va dans les négatifs
           if (_this2.state.time === 0) {
             clearInterval(_this2.timer);
 
             _this2.setState({
-              //inverse la valuer de showmodal
-              showModal: !_this2.state.showModal // isToggleOn: !this.state.isToggleOn
-
+              //On inverse la valeur de showModal: cela permet d'afficher le modal quand le décompte est fini
+              showModal: !_this2.state.showModal
             });
 
             return;
@@ -27045,8 +27055,8 @@ function (_React$Component) {
           });
         }, 1000);
         console.log("start");
-      } // si isToggleOn est faux, quand on appuie sur stop, on arrête l'inteval en cours et on revien
-      // à l'état d'origine, ça se passe au clic dans le composant Toggle
+      } // Else: si isToggleOn est faux, c'est à dire quand on reset, on stoppe l'interval en cours
+      // et on revient à l'état d'origine du timer, 20 minutes. Cela se passe au clic sur le button du Toggle
       else {
           clearInterval(this.timer);
           this.setState({
@@ -27054,29 +27064,24 @@ function (_React$Component) {
           });
           console.log("reset");
         }
-    }
+    } // Composant Increment
+
   }, {
     key: "handleIncrementClick",
     value: function handleIncrementClick() {
       this.setState({
-        //+ une minute (je passe par 60 seconces à cause du calcul dans la fucntion parserYimeer)
+        //On ajoute 60 secondes pour faire 2 minutes (voir calcul du temps initial)
         time: this.state.time + 60
       });
-    }
+    } //Composant Decrement
+
   }, {
     key: "handleDecrementClick",
     value: function handleDecrementClick() {
       this.setState({
         time: this.state.time - 60
       });
-    } // isHidden() {
-    //     this.setState({
-    //         isHidden: !this.state.isHidden
-    //     });
-    //     if (this.state.isToggleOn === true) {
-    //         this.setState
-    //     }
-    // }
+    } //Bouton close dans le Modal
 
   }, {
     key: "handleCloseModal",
@@ -27084,16 +27089,26 @@ function (_React$Component) {
       this.setState({
         showModal: false
       });
-    }
+    } //Bouton restart dans le Modal
+
   }, {
     key: "handleRestart",
     value: function handleRestart() {
+      var _this3 = this;
+
+      //On remet le compteur à 20 minutes
       this.setState({
-        time: 1200,
-        isToggleOn: !this.state.isToggleOn
-      });
-      this.handleToggleClick();
-    }
+        time: 1200
+      }); //Ensuite, on réenclenche l'interval, et on remet le bouton Toggle au statut de reset
+
+      this.timer = setInterval(function () {
+        _this3.setState({
+          time: _this3.state.time - 1,
+          isToggleOn: false
+        });
+      }, 1000);
+    } //Ici, on va rechercher tous les petits composants pour les intégrer dans ce composant principal App
+
   }, {
     key: "render",
     value: function render() {
@@ -27103,11 +27118,11 @@ function (_React$Component) {
         displayed: this.state.showModal,
         onClick: this.handleCloseModal,
         onClick2: this.handleRestart
-      }), _react.default.createElement(_Increment.default, {
+      }), this.state.isToggleOn && _react.default.createElement(_Increment.default, {
         onClick: this.handleIncrementClick
       }), _react.default.createElement("h3", {
         id: "numbers"
-      }, this.timeParser()), _react.default.createElement(_Decrement.default, {
+      }, this.timeParser()), this.state.isToggleOn && _react.default.createElement(_Decrement.default, {
         onClick: this.handleDecrementClick
       }), _react.default.createElement(_Toggle.default, {
         onClick: this.handleToggleClick,
@@ -27116,10 +27131,10 @@ function (_React$Component) {
     }
   }]);
 
-  return Timer;
+  return App;
 }(_react.default.Component);
 
-var _default = Timer;
+var _default = App;
 exports.default = _default;
 },{"react":"node_modules/react/index.js","./Toggle":"src/components/Toggle.js","./Increment":"src/components/Increment.js","./Decrement":"src/components/Decrement.js","./Logo":"src/components/Logo.js","./Modal":"src/components/Modal.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
@@ -27130,15 +27145,14 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
-var _Timer = _interopRequireDefault(require("./components/Timer"));
+var _App = _interopRequireDefault(require("./components/App"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//Importer ici tous les composants qui seront créés; ce sont des fichiers .js
-var App = document.getElementById("app");
-
-_reactDom.default.render(_react.default.createElement(_Timer.default, null), App);
-},{"./scss/app.css":"src/scss/app.css","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Timer":"src/components/Timer.js"}],"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+//Dans ce fichier, on importe le composant principal, App,
+//qui contient tous les autres composants; tous sont des fichiers .js
+_reactDom.default.render(_react.default.createElement(_App.default, null), document.getElementById("app"));
+},{"./scss/app.css":"src/scss/app.css","react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/App":"src/components/App.js"}],"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -27165,7 +27179,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39213" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "45367" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
